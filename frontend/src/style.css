@@ -1,0 +1,171 @@
+/* ============================================================
+   网络安全问答系统 · WASTELAND AI
+   赛博朋克废土主题 —— 全局样式 + Element Plus 变量覆盖
+   ============================================================ */
+
+/* 终端字体（离线时回退 monospace） */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+:root {
+    /* ===== 主题色板（赛博朋克 × 废土） ===== */
+    --waste-bg: #0a0b08;          /* 深焦土黑 */
+    --waste-surface: #12140d;     /* 金属面板 */
+    --waste-panel: #171a12;       /* 面板高一级 */
+    --waste-raised: #1d2016;
+    --waste-border: #33382a;      /* 橄榄锈线 */
+    --waste-border-strong: #4a5040;
+    --waste-rust: #b7410e;        /* 锈橙 */
+    --waste-bronze: #8a6d3b;
+    --waste-olive: #6b7a3f;
+
+    /* 霓虹 */
+    --neon-green: #b6ff00;        /* 放射性毒绿 */
+    --neon-green-dim: #7aa300;
+    --neon-cyan: #00f0ff;         /* 数据青 */
+    --neon-amber: #ffb000;        /* 警示琥珀 */
+    --neon-pink: #ff2bd6;
+    --neon-danger: #ff3355;
+
+    /* 文字 */
+    --text-hi: #f0f3e4;
+    --text-mid: #c6cdb4;
+    --text-low: #8a9279;
+    --text-dark: #3a4033;
+
+    /* 字体 */
+    --font-term: 'Share Tech Mono', 'VT323', 'Courier New', monospace;
+
+    /* ===== Element Plus 暗色覆盖 ===== */
+    --el-color-primary: #b6ff00;
+    --el-color-primary-light-3: #c9ff4d;
+    --el-color-primary-light-5: #d9ff80;
+    --el-color-primary-light-7: #e9ffb3;
+    --el-color-primary-light-8: #f0ffcc;
+    --el-color-primary-light-9: #f6ffe0;
+    --el-color-primary-dark-2: #8fcc00;
+    --el-color-success: #39ff14;
+    --el-color-warning: #ffb000;
+    --el-color-danger: #ff3355;
+    --el-color-error: #ff3355;
+    --el-color-info: #8a8f7d;
+
+    --el-bg-color: #14160f;
+    --el-bg-color-page: #0a0b08;
+    --el-bg-color-overlay: #1a1d14;
+    --el-fill-color: #1f231a;
+    --el-fill-color-light: #1a1e15;
+    --el-fill-color-lighter: #171a12;
+    --el-fill-color-blank: #14160f;
+    --el-fill-color-dark: #2a2f22;
+
+    --el-border-color: #3a4031;
+    --el-border-color-light: #2c3125;
+    --el-border-color-lighter: #262b20;
+    --el-border-color-extra-light: #22271c;
+    --el-border-color-dark: #4a5040;
+
+    --el-text-color-primary: #f0f3e4;
+    --el-text-color-regular: #c6cdb4;
+    --el-text-color-secondary: #8a9279;
+    --el-text-color-placeholder: #717a63;
+    --el-text-color-disabled: #555d4c;
+
+    --el-box-shadow: 0 0 0 1px rgba(182, 255, 0, .15), 0 4px 16px rgba(0, 0, 0, .5);
+    --el-box-shadow-light: 0 0 0 1px rgba(182, 255, 0, .1), 0 2px 8px rgba(0, 0, 0, .4);
+    --el-border-radius-base: 4px;
+    --el-border-radius-small: 3px;
+    --el-border-radius-round: 999px;
+
+    --el-font-family: 'Share Tech Mono', 'Courier New', monospace;
+}
+
+/* ===== 基础 ===== */
+* { box-sizing: border-box; }
+
+html, body, #app { height: 100%; }
+
+body {
+    margin: 0;
+    font-family: var(--font-term);
+    color: var(--text-mid);
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(183, 65, 14, .12), transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(0, 240, 255, .07), transparent 55%),
+        radial-gradient(ellipse at 70% 20%, rgba(182, 255, 0, .05), transparent 50%),
+        linear-gradient(180deg, #0e100b 0%, var(--waste-bg) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ===== 全局扫描线 ===== */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, .16) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, .05) 0 2px, transparent 2px 4px);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+}
+
+/* ===== 全局 CRT 暗角 ===== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .45) 100%);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* ===== 自定义滚动条 ===== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0d0f0a; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3a4031, #2a2f22);
+    border: 1px solid #565d4b;
+}
+::-webkit-scrollbar-thumb:hover { background: #4a5040; }
+
+/* ===== 选择文本 ===== */
+::selection { background: rgba(182, 255, 0, .25); color: #fff; }
+
+/* ===== Element Plus 细节微调 ===== */
+.el-card {
+    background: var(--el-bg-color-overlay);
+    border-color: var(--waste-border);
+}
+
+.el-input__wrapper,
+.el-textarea__inner {
+    background: #10130c !important;
+    border: 1px solid var(--waste-border);
+    box-shadow: none !important;
+    font-family: var(--font-term);
+}
+.el-input__wrapper.is-focus,
+.el-textarea__inner:focus {
+    border-color: var(--neon-green) !important;
+    box-shadow: 0 0 0 1px rgba(182, 255, 0, .35), 0 0 12px rgba(182, 255, 0, .15) !important;
+}
+.el-input__inner, .el-textarea__inner { color: var(--text-hi); }
+.el-input__inner::placeholder, .el-textarea__inner::placeholder { color: var(--text-low); }
+
+.el-button {
+    font-family: var(--font-term);
+    letter-spacing: 1px;
+}
+
+.el-message { font-family: var(--font-term); }
+
+.el-dropdown-menu { background: var(--el-bg-color-overlay); border: 1px solid var(--waste-border); }
+
+/* ===== 通用警示条纹（危险带） ===== */
+.hazard-stripes {
+    background: repeating-linear-gradient(45deg,
+        #ffb000 0 12px,
+        #1a1a1a 12px 24px);
+}

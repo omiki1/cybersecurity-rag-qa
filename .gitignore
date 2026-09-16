@@ -1,0 +1,37 @@
+# ---- 密钥与环境 ----
+.env
+backend/.env
+*.pem
+*.key
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- 向量库与本地数据（可重新生成） ----
+backend/chroma/
+backend/static/upload/
+
+# ---- 前端 ----
+frontend/node_modules/
+frontend/dist/
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.iml
+
+# ---- 构建中间产物 ----
+docs/v3-pdf-tools/_v3_*
+*.log
+Thumbs.db
+.DS_Store
+
+# ---- 二进制文档（含本地路径，不上传）----
+docs/*.pdf
+
+# ---- 开发文档与过程记录（不上传）----
+docs/
+内容回顾/
